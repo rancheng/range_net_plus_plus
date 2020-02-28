@@ -33,9 +33,9 @@ First you need to install the nvidia driver and CUDA, so have fun!
   
 - Trouble shooting
 
-if you can't open the visualizer, please follow the command below:
-```sh
-conda create -n pyqt4_env python=3.6
-activate pyqt4_env
-conda install -c conda-forge pyqt=4*
-```
+  if you can't open the visualizer, please follow the command below:
+  ```sh
+  conda create -n pyqt4_env python=3.6
+  activate pyqt4_env
+  conda install -c conda-forge pyqt=5*
+  ```
