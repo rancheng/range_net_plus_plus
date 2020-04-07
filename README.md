@@ -2,10 +2,11 @@
 
 This part of the framework deals with the training of segmentation networks for point cloud data using range images.
 
-## Tasks
+## Parameter setting
 
-- [Semantic Segmentation](tasks/semantic).
-- [Panoptic Segmentation](tasks/panoptic) \[Soon\].
+```
+--dataset /mnt/Data/Dataset/Kitti/dataset/ --arch_cfg /home/ran/Documents/Projects/rangeNet_plus_plus/tasks/semantic/config/arch/squeezesegV2_crf.yaml
+```
 
 ## Dependencies
 
