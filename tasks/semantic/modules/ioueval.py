@@ -55,9 +55,13 @@ class iouEval:
         # if you are using pytorch 1.3.1, please do not uncomment out this line due to bug at:+-
         # self.conf_matrix = self.conf_matrix.index_put_(
         #     tuple(idxs), self.ones, accumulate=True)
-        tmp_conf_matrix = np.zeros((self.n_classes, self.n_classes), dtype=np.int64)
-        np.add.at(tmp_conf_matrix, idxs.cpu().data.numpy(), 1)
-        self.conf_matrix = torch.from_numpy(tmp_conf_matrix)
+        if torch.__version__ == "1.1.0":
+            self.conf_matrix = self.conf_matrix.index_put_(
+                tuple(idxs), self.ones, accumulate=True)
+        else:
+            tmp_conf_matrix = np.zeros((self.n_classes, self.n_classes), dtype=np.int64)
+            np.add.at(tmp_conf_matrix, idxs.cpu().data.numpy(), 1)
+            self.conf_matrix = torch.from_numpy(tmp_conf_matrix)
         # print(self.tp.shape)
         # print(self.fp.shape)
         # print(self.fn.shape)
